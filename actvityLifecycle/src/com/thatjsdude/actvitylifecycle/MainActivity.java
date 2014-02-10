@@ -12,6 +12,9 @@ import android.widget.EditText;
 public class MainActivity extends Activity {
 
 	private EditText etName, etEmail, etPhone;
+	private static final int PHONE_NUMBER = 0;
+	//finished untill 36.36 of second video of third lecture
+	
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,4 +38,22 @@ public class MainActivity extends Activity {
     	    	
     	startActivity(intent);    	
     }    
+    
+    public void getNumber(View v){
+    	Intent intent = new Intent(this, PhoneNumberSubActivity.class);
+    	startActivityForResult(intent, PHONE_NUMBER);
+    }
+    
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+    	if(requestCode == PHONE_NUMBER){
+    		if(resultCode == Activity.RESULT_OK){
+    			String number = data.getStringExtra("number");
+    			etPhone.setText(number);
+    		}
+    		else{
+    			Log.e("MainActivity", "sub Activity cancelled");
+    		}
+    	}
+    }	
 }

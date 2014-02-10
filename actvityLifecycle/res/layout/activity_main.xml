@@ -34,4 +34,11 @@
         android:onClick="submit"
         android:text="submit" />
 
+    <Button
+        android:id="@+id/getNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="getNumber"
+        android:text="Get Phone Number" />
+
 </LinearLayout>

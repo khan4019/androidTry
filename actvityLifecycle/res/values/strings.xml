@@ -4,5 +4,6 @@
     <string name="app_name">actvity Lifecycle</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_phone_number_sub">PhoneNumberSubActivity</string>
 
 </resources>
