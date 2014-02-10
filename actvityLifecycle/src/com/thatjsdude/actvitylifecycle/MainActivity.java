@@ -1,5 +1,6 @@
 package com.thatjsdude.actvitylifecycle;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -42,6 +43,12 @@ public class MainActivity extends Activity {
     public void getNumber(View v){
     	Intent intent = new Intent(this, PhoneNumberSubActivity.class);
     	startActivityForResult(intent, PHONE_NUMBER);
+    }
+    
+    public void call(View v){
+    	String number =etPhone.getText().toString();
+    	Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+number));
+    	startActivity(intent);
     }
     
     @Override

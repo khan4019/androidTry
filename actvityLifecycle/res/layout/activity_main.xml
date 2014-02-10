@@ -41,4 +41,11 @@
         android:onClick="getNumber"
         android:text="Get Phone Number" />
 
+    <Button
+        android:id="@+id/btnCall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="call"
+        android:text="Call" />
+
 </LinearLayout>
