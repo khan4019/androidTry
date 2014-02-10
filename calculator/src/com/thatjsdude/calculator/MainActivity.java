@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity implements OnClickListener {
+public class MainActivity extends Activity {
 	
 	EditText etOp1, etOp2;
 	TextView txtResult;
@@ -30,11 +30,48 @@ public class MainActivity extends Activity implements OnClickListener {
 		btnMulti = (Button)findViewById(R.id.btnMulti);
 		btnDivison = (Button)findViewById(R.id.btnDivision);
 		
-		btnPlus.setOnClickListener(this);
-		btnMinus.setOnClickListener(this);
-		btnMulti.setOnClickListener(this);
-		btnDivison.setOnClickListener(this);
+		btnPlus.setOnClickListener(buttonListener);
+		btnMinus.setOnClickListener(buttonListener);
+		btnMulti.setOnClickListener(buttonListener);
+		btnDivison.setOnClickListener(buttonListener);
 	}
+	
+	OnClickListener buttonListener=new OnClickListener(){
+		@Override
+		public void onClick(View v){
+			String op1Str = etOp1.getText().toString();
+			String op2Str = etOp2.getText().toString();
+			
+			if(!op1Str.equals("") && !op2Str.equals("")){
+				double operand1 = Double.parseDouble(op1Str);
+				double operand2 = Double.parseDouble(op2Str);		
+				double result = 0;			
+				switch(v.getId()){
+				
+				case R.id.btnPlus:
+					result = operand1 + operand2;
+					break;
+				case R.id.btnMinus:
+					result = operand1 - operand2;
+					break;
+				case R.id.btnMulti:
+					result = operand1 * operand2;
+					break;
+				case R.id.btnDivision:
+					result = operand1 / operand2;
+					break;
+				default:
+					break;
+				}
+				txtResult.setTextColor(Color.BLACK);
+				txtResult.setText("Result = "+result);
+			}
+			else{
+				txtResult.setTextColor(Color.RED);
+				txtResult.setText("Please insert both the operands");
+			}	
+		}
+	};
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -43,39 +80,93 @@ public class MainActivity extends Activity implements OnClickListener {
 		return true;
 	}
 
-	@Override
-	public void onClick(View v) {
-		
-		String op1Str = etOp1.getText().toString();
-		String op2Str = etOp2.getText().toString();
-		
-		if(!op1Str.equals("") && !op2Str.equals("")){
-			double operand1 = Double.parseDouble(op1Str);
-			double operand2 = Double.parseDouble(op2Str);		
-			double result = 0;			
-			switch(v.getId()){
-			
-			case R.id.btnPlus:
-				result = operand1 + operand2;
-				break;
-			case R.id.btnMinus:
-				result = operand1 - operand2;
-				break;
-			case R.id.btnMulti:
-				result = operand1 * operand2;
-				break;
-			case R.id.btnDivision:
-				result = operand1 / operand2;
-				break;
-			default:
-				break;
-			}
-			txtResult.setTextColor(Color.BLACK);
-			txtResult.setText("Result = "+result);
-		}
-		else{
-			txtResult.setTextColor(Color.RED);
-			txtResult.setText("Please insert both the operands");
-		}		
-	}
+//	public void add(View v) {
+//		String op1Str = etOp1.getText().toString();
+//		String op2Str = etOp2.getText().toString();
+//		
+//		if(!op1Str.equals("") && !op2Str.equals("")){
+//			double operand1 = Double.parseDouble(op1Str);
+//			double operand2 = Double.parseDouble(op2Str);		
+//			double result = operand1 + operand2;		
+//			txtResult.setText("Result = "+result);
+//		}
+//		else{
+//			txtResult.setText("Please insert both the operands");
+//		}
+//		
+//				
+//	}
+//	
+//	public void subtract(View v){
+//		String op1Str = etOp1.getText().toString();
+//		String op2Str = etOp2.getText().toString();
+//		
+//		if(!op1Str.equals("") && !op2Str.equals("")){
+//			double operand1 = Double.parseDouble(op1Str);
+//			double operand2 = Double.parseDouble(op2Str);		
+//			double result = operand1 - operand2;		
+//			txtResult.setText("Result = "+result);
+//		}
+//		else{
+//			txtResult.setText("Please insert both the operands");
+//		}
+//	}
+//	public void multi(View v){
+//		String op1Str = etOp1.getText().toString();
+//		String op2Str = etOp2.getText().toString();
+//		
+//		double operand1 = Double.parseDouble(op1Str);
+//		double operand2 = Double.parseDouble(op2Str);
+//		
+//		double result = operand1 * operand2;
+//		
+//		txtResult.setText("Result = "+result);
+//	}
+//	public void divison(View v){
+//		String op1Str = etOp1.getText().toString();
+//		String op2Str = etOp2.getText().toString();
+//		
+//		double operand1 = Double.parseDouble(op1Str);
+//		double operand2 = Double.parseDouble(op2Str);
+//		
+//		double result = operand1 / operand2;
+//		
+//		txtResult.setText("Result = "+result);
+//	}
+
+//	@Override
+//	public void onClick(View v) {
+//		
+//		String op1Str = etOp1.getText().toString();
+//		String op2Str = etOp2.getText().toString();
+//		
+//		if(!op1Str.equals("") && !op2Str.equals("")){
+//			double operand1 = Double.parseDouble(op1Str);
+//			double operand2 = Double.parseDouble(op2Str);		
+//			double result = 0;			
+//			switch(v.getId()){
+//			
+//			case R.id.btnPlus:
+//				result = operand1 + operand2;
+//				break;
+//			case R.id.btnMinus:
+//				result = operand1 - operand2;
+//				break;
+//			case R.id.btnMulti:
+//				result = operand1 * operand2;
+//				break;
+//			case R.id.btnDivision:
+//				result = operand1 / operand2;
+//				break;
+//			default:
+//				break;
+//			}
+//			txtResult.setTextColor(Color.BLACK);
+//			txtResult.setText("Result = "+result);
+//		}
+//		else{
+//			txtResult.setTextColor(Color.RED);
+//			txtResult.setText("Please insert both the operands");
+//		}		
+//	}
 }
