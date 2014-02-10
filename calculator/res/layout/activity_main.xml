@@ -38,33 +38,29 @@
             android:id="@+id/btnPlus"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"            
-            android:text="+" 
-            android:onClick="add"/>
+            android:layout_weight="1"
+            android:text="+" />
 
         <Button
             android:id="@+id/btnMinus"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="-"
-            android:onClick="subtract" />
+            android:text="-" />
 
         <Button
             android:id="@+id/btnMulti"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="*"
-            android:onClick="multi" />
+            android:text="*" />
 
         <Button
             android:id="@+id/btnDivision"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="/" 
-            android:onClick="divison"/>
+            android:text="/" />
     </LinearLayout>
 
     <TextView
